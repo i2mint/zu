@@ -4,10 +4,10 @@ from typing import Union
 import os
 from warnings import warn
 
-from zu.base import Store
-from zu.util import lazyprop
-from zu.trans import store_decorator
-from zu.dig import recursive_get_attr
+from on.base import Store
+from on.util import lazyprop
+from on.trans import store_decorator
+from on.dig import recursive_get_attr
 
 path_sep = os.path.sep
 
@@ -35,7 +35,7 @@ class PathGetMixin:
     >>> s['a', 'b', 'c']
     42
     >>>
-    >>> from zu import kv_wrap
+    >>> from on import kv_wrap
     >>> class P(PathGetMixin, dict): ...
     >>> PP = kv_wrap(KeyPath(path_sep='.'))(P)
     >>>
@@ -118,7 +118,7 @@ class PrefixRelativizationMixin:
     When subclassed, should be placed before the class defining _id_of_key an _key_of_id.
     Also, assumes that a (string) _prefix attribute will be available.
 
-    >>> from zu.base import Store
+    >>> from on.base import Store
     >>> from collections import UserDict
     >>>
     >>> class MyStore(PrefixRelativizationMixin, Store):
@@ -276,7 +276,7 @@ class RelativePathKeyMapper:
         return _id[self._prefix_length:]
 
 
-from zu.key_mappers.naming import StrTupleDict
+from on.key_mappers.naming import StrTupleDict
 from enum import Enum
 
 
@@ -361,7 +361,7 @@ def rel_path_wrap(o, _prefix):
 
     """
 
-    from zu import kv_wrap
+    from on import kv_wrap
 
     trans_obj = RelativePathKeyMapper(_prefix)
     return kv_wrap(trans_obj)(o)

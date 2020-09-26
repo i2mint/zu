@@ -7,8 +7,8 @@ import os
 from functools import partial, wraps
 from types import MethodType
 
-from zu.utils.signatures import set_signature_of_func
-from zu.errors import KeyValidationError, _assert_condition
+from on.utils.signatures import set_signature_of_func
+from on.errors import KeyValidationError, _assert_condition
 
 assert_condition = partial(_assert_condition, err_cls=KeyValidationError)
 
@@ -778,9 +778,9 @@ class StrTupleDictWithPrefix(StrTupleDict):
 
 LinearNaming = StrTupleDictWithPrefix
 
-from zu.base import Store
+from on.base import Store
 from collections import namedtuple
-from zu.util import lazyprop
+from on.util import lazyprop
 
 
 class ParametricKeyStore(Store):
@@ -1109,7 +1109,7 @@ class BigDocTest:
 
 import os
 from functools import wraps
-from zu.trans import wrap_kvs
+from on.trans import wrap_kvs
 
 pjoin = os.path.join
 

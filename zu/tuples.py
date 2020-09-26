@@ -13,7 +13,7 @@ That is, converting from any of the following kinds of keys:
 # TODO: Add randomized "bijectivity" tests (see _test_dsv_of_list for what I mean) if easy.
 
 from functools import partial
-from zu.errors import KeyValidationError, _assert_condition
+from on.errors import KeyValidationError, _assert_condition
 
 __assert_condition = partial(_assert_condition, err_cls=KeyValidationError)
 
