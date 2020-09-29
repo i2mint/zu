@@ -276,7 +276,7 @@ class RelativePathKeyMapper:
         return _id[self._prefix_length:]
 
 
-from on.key_mappers.naming import StrTupleDict
+from zu.naming import StrTupleDict
 from enum import Enum
 
 
@@ -289,7 +289,7 @@ class PathKeyTypes(Enum):
 
 _method_names_for_path_type = {
     PathKeyTypes.str: {'_id_of_key': StrTupleDict.simple_str_to_str,
-                        '_key_of_id': StrTupleDict.str_to_simple_str},
+                       '_key_of_id': StrTupleDict.str_to_simple_str},
     PathKeyTypes.dict: {'_id_of_key': StrTupleDict.dict_to_str,
                         '_key_of_id': StrTupleDict.str_to_dict},
     PathKeyTypes.tuple: {'_id_of_key': StrTupleDict.tuple_to_str,
@@ -297,6 +297,7 @@ _method_names_for_path_type = {
     PathKeyTypes.namedtuple: {'_id_of_key': StrTupleDict.namedtuple_to_str,
                               '_key_of_id': StrTupleDict.str_to_namedtuple},
 }
+
 
 #
 # def str_to_simple_str(self, s: str):
